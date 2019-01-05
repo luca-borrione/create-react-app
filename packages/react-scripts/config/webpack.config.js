@@ -317,7 +317,7 @@ module.exports = function(webpackEnv) {
                   settings: { react: { version: '999.999.999' } },
                 },
                 ignore: false,
-                useEslintrc: false,
+                useEslintrc: true,
                 // @remove-on-eject-end
               },
               loader: require.resolve('eslint-loader'),
