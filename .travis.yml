@@ -38,3 +38,25 @@ matrix:
 branches:
   only:
     travis-ci
+
+before_deploy:
+  - cd ..
+  - tar -zcf ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz ${REPO}
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: build
+  on:
+    branch: master
+
+deploy:
+  # GitHub - Add zip to release
+  - provider: releases
+    api_key:
+      secure: $github_token
+    file: ${TRAVIS_BUILD_DIR}${REPO}-${BUILD_ENV}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
+    skip_cleanup: true
+    on:
+      tags: true
