@@ -316,7 +316,7 @@ module.exports = function(webpackEnv) {
                   extends: [require.resolve('eslint-config-react-app')],
                   settings: { react: { version: '999.999.999' } },
                 },
-                ignore: false,
+                ignore: true,
                 useEslintrc: true,
                 // @remove-on-eject-end
               },
