@@ -34,3 +34,7 @@ matrix:
       env: TEST_SUITE=behavior
     - node_js: 6
       env: TEST_SUITE=old-node
+
+branches:
+  only:
+    travis-ci
