@@ -2,9 +2,10 @@
 dist: trusty
 language: node_js
 node_js:
-  - 8
-  - 10
-  - node
+  # - 8
+  # - 10
+  # - node
+  - 10.15.0
 cache:
   yarn: true
   directories:
@@ -35,9 +36,13 @@ matrix:
     - node_js: 6
       env: TEST_SUITE=old-node
 
+# branches:
+#   only:
+#     travis-ci
 branches:
-  only:
-    travis-ci
+    only:
+    - master
+    - /v\d+\.\d+[a-z]/
 
 before_deploy:
   - cd ..
@@ -51,3 +56,4 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+    all_branches: true
