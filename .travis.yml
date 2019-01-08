@@ -36,13 +36,13 @@ matrix:
     - node_js: 6
       env: TEST_SUITE=old-node
 
-# branches:
-#   only:
-#     travis-ci
 branches:
-    only:
-    - master
-    - /v\d+\.\d+[a-z]/
+  only:
+    travis-ci
+# branches:
+#     only:
+#     - master
+#     - /v\d+\.\d+[a-z]/
 
 before_deploy:
   - cd ..
